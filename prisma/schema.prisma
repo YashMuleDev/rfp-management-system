@@ -1,0 +1,119 @@
+datasource db {
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  rfps      RFP[]
+  vendors   Vendor[]
+}
+
+model RFP {
+  id          String       @id @default(uuid())
+  title       String
+  description String
+  category    String
+  budget      Float
+  deadline    DateTime
+  status      RFPStatus    @default(DRAFT)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  userId      String
+  user        User         @relation(fields: [userId], references: [id])
+  requirements Requirement[]
+  proposals   Proposal[]
+  sentEmails  Email[]
+
+  @@index([userId])
+}
+
+model Requirement {
+  id          String   @id @default(uuid())
+  description String
+  rfpId       String
+  rfp         RFP      @relation(fields: [rfpId], references: [id])
+  
+  @@index([rfpId])
+}
+
+model Vendor {
+  id          String    @id @default(uuid())
+  name        String
+  email       String
+  phone       String?
+  category    String
+  address     String?
+  notes       String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  proposals   Proposal[]
+  
+  @@unique([userId, email])
+  @@index([userId])
+}
+
+model Proposal {
+  id          String    @id @default(uuid())
+  rfpId       String
+  rfp         RFP       @relation(fields: [rfpId], references: [id])
+  vendorId    String
+  vendor      Vendor    @relation(fields: [vendorId], references: [id])
+  amount      Float
+  currency    String    @default("USD")
+  validUntil  DateTime?
+  notes       String?
+  status      ProposalStatus @default(SUBMITTED)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  @@index([rfpId])
+  @@index([vendorId])
+}
+
+model Email {
+  id          String    @id @default(uuid())
+  rfpId       String
+  rfp         RFP       @relation(fields: [rfpId], references: [id])
+  to          String
+  subject     String
+  body        String
+  status      EmailStatus @default(SENT)
+  sentAt      DateTime  @default(now())
+  
+  @@index([rfpId])
+}
+
+enum RFPStatus {
+  DRAFT
+  SENT
+  IN_REVIEW
+  COMPLETED
+  CANCELLED
+}
+
+enum ProposalStatus {
+  DRAFT
+  SUBMITTED
+  SHORTLISTED
+  REJECTED
+  ACCEPTED
+}
+
+enum EmailStatus {
+  DRAFT
+  SENDING
+  SENT
+  FAILED
+  DELIVERED
+  BOUNCED
+}
