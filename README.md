@@ -21,12 +21,29 @@ A modern, AI-powered system for managing business proposals and vendor requests.
 
 ## ✨ Features
 
-- � **Email Integration** - Manage RF Ps through email workflows
-- 🤖 **AI-Powered Analysis** - Compare proposals using Google Gemini
-- � **Vendor Management** - Track and organize vendor information
-- 📊 **Proposal Tracking** - Monitor proposal submissions and status
-- 🎯 **Smart Comparison** - Get AI insights and recommendations
-- 📱 **Responsive Design** - Works on desktop and mobile devices
+- 📧 **Email Integration** - Manage requests and responses through email
+- 🤖 **AI-Powered Comparison** - Let AI analyze and compare vendor proposals automatically
+- 👥 **Vendor Management** - Keep track of all your service providers and suppliers
+- 📊 **Proposal Tracking** - Monitor all submitted proposals and their status
+- 🎯 **Smart Recommendations** - Get AI insights to help choose the best proposal
+- 📱 **Easy to Use** - Clean, modern interface that works on any device
+- � **Business Ready** - Professional tools for procurement teams
+
+## 🏢 Who Can Use This?
+
+- **Small Businesses** - Finding contractors, suppliers, or service providers
+- **Procurement Teams** - Managing vendor selection processes
+- **Project Managers** - Comparing bids for projects
+- **Startups** - Choosing between different service options
+- **Anyone** - Who needs to compare multiple business proposals
+
+## 💡 Real-World Examples
+
+**Need a new website?** Create an RFP describing your requirements, send it to web developers, compare their proposals with AI assistance, and choose the best one.
+
+**Planning an event?** Send RFPs to caterers, venues, and photographers. Let the AI help you compare prices, services, and reviews to make the best decision.
+
+**Buying office supplies?** Get proposals from different suppliers and use AI to find the best value for money.
 
 ## 🚀 Quick Start
 
@@ -94,7 +111,7 @@ A modern, AI-powered system for managing business proposals and vendor requests.
 └── public/            # Static assets
 ```
 
-## 🚀 Deployment
+## � Deployment
 
 ### Vercel (Recommended)
 
@@ -114,13 +131,12 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment guides for:
 - Docker
 - Self-hosted options
 
-## 🔧 Available Scripts
+## � Available Scripts
 
 ```bash
 npm run dev          # Start development server
 npm run build        # Build for production
 npm start            # Start production server
-npm run lint         # Run ESLint
 npm run db:generate  # Generate Prisma client
 npm run db:push      # Push schema to database
 npm run db:studio    # Open Prisma Studio
@@ -133,7 +149,7 @@ npm run db:studio    # Open Prisma Studio
 | `DATABASE_URL` | Database connection string | Yes |
 | `GOOGLE_GENERATIVE_AI_API_KEY` | Google Gemini API key | Yes |
 
-## 📝 License
+## � License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 

@@ -2,8 +2,8 @@
   "name": "rfp-management-system",
   "version": "1.0.0",
   "private": true,
-  "description": "AI-powered RFP Management System built with Next.js",
-  "keywords": ["nextjs", "typescript", "prisma", "ai", "rfp", "gemini"],
+  "description": "Smart Proposal Management System - AI-powered tool for managing business proposals and vendor requests",
+  "keywords": ["nextjs", "typescript", "prisma", "ai", "proposals", "business", "procurement", "vendors"],
   "scripts": {
     "build": "prisma generate && next build",
     "dev": "next dev",
