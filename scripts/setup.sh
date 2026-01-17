@@ -4,9 +4,9 @@ echo "🚀 Setting up RFP Management System..."
 
 # Check if .env exists
 if [ ! -f .env ]; then
-    echo "📝 Creating .env file from .env.example..."
+    echo "📝 Creating .env file..."
     cp .env.example .env
-    echo "⚠️  Please update .env with your actual API keys!"
+    echo "⚠️  Please update .env with your Google Gemini API key!"
 else
     echo "✅ .env file already exists"
 fi
@@ -15,12 +15,4 @@ fi
 echo "📦 Installing dependencies..."
 npm install
 
-# Generate Prisma Client
-echo "🔧 Generating Prisma Client..."
-npx prisma generate
-
-# Push database schema
-echo "🗄️  Setting up database..."
-npx prisma db push
-
-echo "✨ Setup complete! Run 'npm run dev' to start the development server."
+echo "✨ Setup complete! Run 'npm run dev' to start development."

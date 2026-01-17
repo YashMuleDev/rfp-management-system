@@ -1,0 +1,9 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "env": {
+    "GOOGLE_GENERATIVE_AI_API_KEY": "@google_generative_ai_api_key"
+  }
+}
